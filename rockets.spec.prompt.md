@@ -2,50 +2,64 @@
 
 ## Role
 
-Act as a software analyst. 
+Act as a software analyst.
 
 ## Task
 
-Generate a specification to implement the functionality described below.
-Do not write any code or tests, just the specification.
+Generate a specification for the functionality described below.
+
+Do not write implementation code or tests; write only the specification.
 
 ## Context
 
-- An API endpoint to manage rockets in the AstroBookings travel application.
+- AstroBookings needs an API endpoint for managing rockets.
 - Each rocket has:
-  - name, 
-  - range ("suborbital", "orbital", "moon", "mars"), 
-  - capacity (1 to 10 passengers).
+  - `name`
+  - `range`: `suborbital`, `orbital`, `moon`, or `mars`
+  - `capacity`: from 1 to 10 passengers
+- The target backend stack is:
+  - Python
+  - FastAPI
+  - Uvicorn
+  - Pydantic models for data validation and schema generation
+- FastAPI will use the Pydantic schemas and Python type annotations to generate the OpenAPI documentation, Swagger UI, and ReDoc.
 
-Ask for any additional context if needed.
+Do not invent authentication, persistence, identifiers, or additional operations that are not supported by the available context. State any necessary assumptions explicitly, and ask for additional context only when a missing decision materially affects the specification.
 
 ### Specification Template
 
-Follow this template for writing the specification file `specs/rockets.spec.md`:
+Follow this template for the file `specs/rockets.spec.md`:
 
 ````markdown
 # Rocket Management API Specification
+
 ## Problem Description
-- As {role} , I want to **{goal}**  so that {reason}.
+- As {role}, I want to **{goal}** so that {reason}.
+
 ## Solution Overview
-- {Simple approach to solve the problem, no technical details.}
+- {Describe the simplest behavioral solution without implementation details.}
+
 ## Acceptance Criteria
-- [ ] EARS format
+- [ ] {Acceptance criterion in EARS format.}
 ````
 
-## Steps to follow:
+## Steps to Follow
 
-1. **Define the Problem**: 
-  - Clearly outline the problem with up to 3 user stories.
-2. **Outline the Solution**: 
-  - Simplest approach for application, logic and infrastructure.
-3. **Set Acceptance Criteria**: 
-  - Up to 9 acceptance criteria in EARS format.
+1. **Define the Problem**
+   - Describe the problem with no more than three user stories.
+2. **Outline the Solution**
+   - Describe the simplest application behavior and required API interactions.
+   - Keep the specification technology-independent except for the stated API and validation constraints.
+3. **Set Acceptance Criteria**
+   - Write no more than nine acceptance criteria.
+   - Use EARS format.
+   - Cover valid requests, allowed `range` values, capacity boundaries, invalid input, response behavior, and generated API schema visibility when applicable.
 
 ## Output Checklist
 
-- [ ] The output should be a markdown file named `specs/rockets.spec.md`.
-- [ ] The specification with: 
-  - Problem Description, 
-  - Solution Overview, 
-  - Acceptance Criteria.
+- [ ] A Markdown file exists at `specs/rockets.spec.md`.
+- [ ] The specification contains:
+  - Problem Description
+  - Solution Overview
+  - Acceptance Criteria
+- [ ] No implementation code or tests are included.
