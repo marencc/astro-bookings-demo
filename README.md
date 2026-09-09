@@ -20,3 +20,28 @@ A **backend API** for offering bookings for rocket launches.
 **Original proprosal from** [Alberto Basalo](https://albertobasalo.dev)
 **From IT Trainning** [Repository at GitHub](https://github.com/AlbertoBasaloLabs/astro-bookings-demo)
 - Default branch: `main`
+
+## Development
+
+This project uses [Poetry](https://python-poetry.org/) for dependency and package
+management.
+
+```bash
+poetry install
+poetry run astro-bookings
+poetry run pytest
+poetry run ruff check .
+```
+
+The API runs at `http://127.0.0.1:8000` by default.
+
+- Health status: `GET /health`
+- Swagger UI: `GET /docs`
+- ReDoc: `GET /redoc`
+- OpenAPI schema: `GET /openapi.json`
+
+This repository includes a `.envrc` for optional direnv integration:
+
+```bash
+direnv allow
+```
