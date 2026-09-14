@@ -4,6 +4,9 @@ import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel, ConfigDict
 
+from astro_bookings import __version__
+from astro_bookings.rockets import router as rockets_router
+
 
 class HealthStatus(BaseModel):
     """Public health-check response."""
@@ -16,8 +19,9 @@ class HealthStatus(BaseModel):
 app = FastAPI(
     title="AstroBookings API",
     summary="A backend API for offering bookings for rocket launches.",
-    version="0.1.0",
+    version=__version__,
 )
+app.include_router(rockets_router)
 
 
 @app.get(

@@ -36,9 +36,14 @@ poetry run ruff check .
 The API runs at `http://127.0.0.1:8000` by default.
 
 - Health status: `GET /health`
+- Create rocket: `POST /rockets`
 - Swagger UI: `GET /docs`
 - ReDoc: `GET /redoc`
 - OpenAPI schema: `GET /openapi.json`
+
+Rocket requests include `name`, `range`, and `capacity`. Supported ranges are
+`suborbital`, `orbital`, `moon`, and `mars`; capacity must be a whole number
+from 1 through 10.
 
 This repository includes a `.envrc` for optional direnv integration:
 
