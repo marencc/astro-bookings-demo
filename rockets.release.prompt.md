@@ -59,7 +59,7 @@ Verify the rockets feature, ensure it is tested, documented, and versioned, and 
 4. **Commit, Tag, and Merge**
    - Commit release changes with: `chore: prepare release v{version}`.
    - Create an annotated Git tag named `v{version}` with message: `Release v{version}`.
-   - Merge `feat/rockets` into `main` using the repository's established merge strategy.
+   - Merge `feat/rockets` into `master` using the repository's established merge strategy.
    - Do not force-push, delete branches, or publish remotely unless explicitly requested.
 
 ## Output Checklist
@@ -71,5 +71,5 @@ Verify the rockets feature, ensure it is tested, documented, and versioned, and 
 - [ ] `README.md` was updated when applicable.
 - [ ] Release changes were committed as `chore: prepare release v{version}`.
 - [ ] Annotated tag `v{version}` was created with message `Release v{version}`.
-- [ ] `feat/rockets` was merged into `main`.
+- [ ] `feat/rockets` was merged into `master`.
 - [ ] No remote publication or destructive Git action occurred without explicit authorization.
