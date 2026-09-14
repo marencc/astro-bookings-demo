@@ -20,8 +20,16 @@ def test_health_status():
     assert payload == {"status": "ok"}
 
 
-def test_openapi_schema_includes_health_endpoint():
+def test_root_welcome():
+    status_code, payload = anyio.run(get_json, "/")
+
+    assert status_code == 200
+    assert payload == {"message": "Welcome to AstroBookings API"}
+
+
+def test_openapi_schema_includes_system_endpoints():
     status_code, payload = anyio.run(get_json, "/openapi.json")
 
     assert status_code == 200
+    assert "/" in payload["paths"]
     assert "/health" in payload["paths"]

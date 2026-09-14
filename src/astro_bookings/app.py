@@ -16,12 +16,33 @@ class HealthStatus(BaseModel):
     status: str
 
 
+class RootWelcome(BaseModel):
+    """Public root endpoint response."""
+
+    model_config = ConfigDict(
+        json_schema_extra={"example": {"message": "Welcome to AstroBookings API"}}
+    )
+
+    message: str
+
+
 app = FastAPI(
     title="AstroBookings API",
     summary="A backend API for offering bookings for rocket launches.",
     version=__version__,
 )
 app.include_router(rockets_router)
+
+
+@app.get(
+    "/",
+    response_model=RootWelcome,
+    summary="Welcome to the API",
+    tags=["system"],
+)
+async def get_root() -> RootWelcome:
+    """Return a minimal API welcome message."""
+    return RootWelcome(message="Welcome to AstroBookings API")
 
 
 @app.get(
