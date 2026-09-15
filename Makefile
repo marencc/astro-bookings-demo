@@ -1,10 +1,6 @@
-.PHONY: install run test
+.PHONY: test
 
-install:
-	poetry install
-
-run:
-	poetry run uvicorn astro_bookings.app:app --host 127.0.0.1 --port 8000 --reload
+PYTHON ?= $(if $(wildcard .venv/bin/python),.venv/bin/python,python)
 
 test:
-	poetry run pytest
+	$(PYTHON) -m pytest
